@@ -7,12 +7,14 @@ import 'EnglishListPage.dart';
 class MainPage extends StatelessWidget {
   final _itemData = <RouteBean>[];
 
-  MainPage() {
-    _initData();
+  void _initData(BuildContext context) {
+    _itemData.add(RouteBean('English List Page',
+        (context) => EnglishListPage(title: _itemData[0].name)));
   }
 
   @override
   Widget build(BuildContext context) {
+    _initData(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(Strings.home),
@@ -31,13 +33,8 @@ class MainPage extends StatelessWidget {
           : ListTile(
               title: Text(_itemData[index ~/ 2].toString()),
               onTap: () =>
-                  Navigator.of(context).push(_itemData[index ~/ 2].builder),
+                  Navigator.of(context).push(MaterialPageRoute(builder: _itemData[index ~/ 2].builder)),
             ),
     );
-  }
-
-  void _initData() {
-    _itemData.add(RouteBean('English List Page',
-        MaterialPageRoute(builder: (context) => EnglishListPage())));
   }
 }

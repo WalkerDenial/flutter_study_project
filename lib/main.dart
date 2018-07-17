@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'page/MainPage.dart';
 
-void main() => runApp(AppEntrance());
+main() => runApp(AppEntrance());
 
 class AppEntrance extends StatelessWidget {
   @override
@@ -9,6 +9,10 @@ class AppEntrance extends StatelessWidget {
     return MaterialApp(
       home: MainPage(),
       theme: ThemeData(primaryColor: Colors.blue),
+      // routes: <String, WidgetBuilder>{
+      //   RoutePaths.PATH_PAGE_ENGLIST_LIST: (context) => EnglishListPage(),
+      //   RoutePaths.PATH_PAGE_FAVORITE_LIST: (context) => FavoritePage()
+      // },
     );
   }
 }
