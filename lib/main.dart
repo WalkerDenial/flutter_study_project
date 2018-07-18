@@ -8,7 +8,7 @@ class AppEntrance extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MainPage(),
-      theme: ThemeData(primaryColor: Colors.blue),
+      theme: ThemeData(primaryColor: Colors.white),
       // routes: <String, WidgetBuilder>{
       //   RoutePaths.PATH_PAGE_ENGLIST_LIST: (context) => EnglishListPage(),
       //   RoutePaths.PATH_PAGE_FAVORITE_LIST: (context) => FavoritePage()

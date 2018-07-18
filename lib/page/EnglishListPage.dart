@@ -7,7 +7,9 @@ final _saved = Set<WordPair>();
 
 class EnglishListPage extends StatelessWidget {
   final title;
-  EnglishListPage({this.title});
+  EnglishListPage({this.title}) {
+    _saved.clear();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
