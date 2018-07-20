@@ -3,6 +3,7 @@ import '../constants/Strings.dart';
 import '../constants/Dimens.dart';
 import '../bean/RouteBean.dart';
 import 'EnglishListPage.dart';
+import 'LakePage.dart';
 
 class MainPage extends StatelessWidget {
   final _itemData = <RouteBean>[];
@@ -10,6 +11,8 @@ class MainPage extends StatelessWidget {
   void _initData(BuildContext context) {
     _itemData.add(RouteBean('English List Page',
         (context) => EnglishListPage(title: _itemData[0].name)));
+    _itemData.add(RouteBean(
+        'Lake Page', (context) => LakePage(title: _itemData[1].name)));
   }
 
   @override
@@ -32,8 +35,8 @@ class MainPage extends StatelessWidget {
           ? Divider(height: Dimens.divideHeight)
           : ListTile(
               title: Text(_itemData[index ~/ 2].toString()),
-              onTap: () =>
-                  Navigator.of(context).push(MaterialPageRoute(builder: _itemData[index ~/ 2].builder)),
+              onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: _itemData[index ~/ 2].builder)),
             ),
     );
   }
