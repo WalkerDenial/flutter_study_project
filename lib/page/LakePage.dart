@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import '../constants/Dimens.dart';
 
-class LakePage extends StatelessWidget {
+class LakePage extends StatefulWidget {
   final title;
   LakePage({this.title});
+  @override
+  createState() => _LakePage(title: title);
+}
+
+class _LakePage extends State<LakePage> {
+  final title;
+  int _collectCounts = 41;
+  bool _hasCollected = true;
+  _LakePage({this.title});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,11 +60,20 @@ class LakePage extends StatelessWidget {
               ],
             ),
           ),
-          Icon(
-            Icons.star,
+          IconButton(
+            icon: (_hasCollected ? Icon(Icons.star) : Icon(Icons.star_border)),
             color: Colors.red[500],
+            onPressed: () {
+              setState(() {
+                _hasCollected = !_hasCollected;
+                if (_hasCollected)
+                  _collectCounts++;
+                else
+                  _collectCounts--;
+              });
+            },
           ),
-          Text('41')
+          Text('$_collectCounts'),
         ],
       ),
     );

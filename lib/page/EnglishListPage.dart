@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import '../constants/Dimens.dart';
+import '../utils/ToastUtil.dart';
 import 'FavoritePage.dart';
 
 final _saved = Set<WordPair>();
@@ -44,23 +45,43 @@ class _EnglishListPageState extends State<_EnglishListPage> {
         if (i >= _suggestoins.length)
           _suggestoins.addAll(generateWordPairs().take(10));
         final isContained = _saved.contains(_suggestoins[i]);
-        return ListTile(
-          title: Text(
-            _suggestoins[i].asPascalCase,
-            style: _biggerFont,
+        return Dismissible(
+          key: Key(_suggestoins[i].asPascalCase),
+          direction: DismissDirection.endToStart,
+          background: Container(
+            color: Colors.red,
+            child: Center(
+              child: Text(
+                'Deleted',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12.0),
+              ),
+            ),
           ),
-          subtitle: Text('This is ${_suggestoins[i].asPascalCase}.'),
-          trailing: Icon(isContained ? Icons.favorite : Icons.favorite_border,
-              color: isContained ? Colors.red : null),
-          onTap: () {
+          onDismissed: (direction) {
+            final tempStr = _suggestoins[i].asPascalCase;
+            ToastUtil.showToast('$tempStr dimissed.');
             setState(() {
-              if (isContained) {
-                _saved.remove(_suggestoins[i]);
-              } else {
-                _saved.add(_suggestoins[i]);
-              }
+              _suggestoins.removeAt(i);
             });
           },
+          child: ListTile(
+            title: Text(
+              _suggestoins[i].asPascalCase,
+              style: _biggerFont,
+            ),
+            subtitle: Text('This is ${_suggestoins[i].asPascalCase}.'),
+            trailing: Icon(isContained ? Icons.favorite : Icons.favorite_border,
+                color: isContained ? Colors.red : null),
+            onTap: () {
+              setState(() {
+                if (isContained) {
+                  _saved.remove(_suggestoins[i]);
+                } else {
+                  _saved.add(_suggestoins[i]);
+                }
+              });
+            },
+          ),
         );
       },
     );

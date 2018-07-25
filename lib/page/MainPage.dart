@@ -4,6 +4,8 @@ import '../constants/Dimens.dart';
 import '../bean/RouteBean.dart';
 import 'EnglishListPage.dart';
 import 'LakePage.dart';
+import 'BasicAppBar.dart';
+import 'TabBarAndAppBar.dart';
 
 class MainPage extends StatelessWidget {
   final _itemData = <RouteBean>[];
@@ -13,6 +15,10 @@ class MainPage extends StatelessWidget {
         (context) => EnglishListPage(title: _itemData[0].name)));
     _itemData.add(RouteBean(
         'Lake Page', (context) => LakePage(title: _itemData[1].name)));
+    _itemData.add(RouteBean(
+        'Basic AppBar', (context) => BasicAppBar(title: _itemData[2].name)));
+    _itemData.add(RouteBean('TabBar & AppBar',
+        (context) => TabBarAndAppBar(title: _itemData[3].name)));
   }
 
   @override
