@@ -61,6 +61,7 @@ class _EnglishListPageState extends State<_EnglishListPage> {
             final tempStr = _suggestoins[i].asPascalCase;
             ToastUtil.showToast('$tempStr dimissed.');
             setState(() {
+              if (isContained) _saved.remove(_suggestoins[i]);
               _suggestoins.removeAt(i);
             });
           },

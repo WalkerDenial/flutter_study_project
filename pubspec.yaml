@@ -35,7 +35,41 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-   - images/lake.jpg
+    - images/lake.jpg
+    - images/ct_pic1.jpg
+    - images/ct_pic2.jpg
+    - images/ct_pic3.jpg
+    - images/ct_pic4.jpg
+    - images/gt_pic1.jpg
+    - images/gt_pic2.jpg
+    - images/gt_pic3.jpg
+    - images/gt_pic4.jpg
+    - images/gt_pic5.jpg
+    - images/gt_pic6.jpg
+    - images/gt_pic7.jpg
+    - images/gt_pic8.jpg
+    - images/gt_pic9.jpg
+    - images/gt_pic10.jpg
+    - images/gt_pic11.jpg
+    - images/gt_pic12.jpg
+    - images/gt_pic13.jpg
+    - images/gt_pic14.jpg
+    - images/gt_pic15.jpg
+    - images/gt_pic16.jpg
+    - images/gt_pic17.jpg
+    - images/gt_pic18.jpg
+    - images/gt_pic19.jpg
+    - images/gt_pic20.jpg
+    - images/gt_pic21.jpg
+    - images/gt_pic22.jpg
+    - images/gt_pic23.jpg
+    - images/gt_pic24.jpg
+    - images/gt_pic25.jpg
+    - images/gt_pic26.jpg
+    - images/gt_pic27.jpg
+    - images/gt_pic28.jpg
+    - images/gt_pic29.jpg
+    - images/gt_pic30.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
