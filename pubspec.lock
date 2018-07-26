@@ -206,7 +206,7 @@ packages:
       name: node_preamble
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.3"
+    version: "1.4.4"
   package_config:
     dependency: transitive
     description:
