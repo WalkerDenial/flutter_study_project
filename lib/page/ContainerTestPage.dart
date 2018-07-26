@@ -19,14 +19,14 @@ class ContainerTestPage extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                _buildImageWidget('images/pic1.jpg'),
-                _buildImageWidget('images/pic2.jpg'),
+                _buildImageWidget('images/ct_pic1.jpg'),
+                _buildImageWidget('images/ct_pic2.jpg'),
               ],
             ),
             Row(
               children: <Widget>[
-                _buildImageWidget('images/pic3.jpg'),
-                _buildImageWidget('images/pic4.jpg'),
+                _buildImageWidget('images/ct_pic3.jpg'),
+                _buildImageWidget('images/ct_pic4.jpg'),
               ],
             ),
           ],
