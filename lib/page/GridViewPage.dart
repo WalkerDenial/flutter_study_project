@@ -29,7 +29,7 @@ class _GridViewPageState extends State<GridViewPage> {
         mainAxisSpacing: 4.0,
         crossAxisSpacing: 4.0,
         children: List<Container>.generate(
-            _titleList.length,
+            30,
             (index) => Container(
                   child: GridTile(
                     footer: Container(
