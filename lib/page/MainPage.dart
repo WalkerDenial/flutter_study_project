@@ -8,8 +8,10 @@ import 'BasicAppBar.dart';
 import 'TabBarAndAppBar.dart';
 import 'ContainerTestPage.dart';
 import 'GridViewPage.dart';
+import 'ColorsPage.dart';
 
 class MainPage extends StatelessWidget {
+  
   final _itemData = <RouteBean>[];
 
   void _initData(BuildContext context) {
@@ -25,6 +27,8 @@ class MainPage extends StatelessWidget {
         (context) => ContainerTestPage(title: _itemData[4].name)));
     _itemData.add(RouteBean(
         'GrideView Test', (context) => GridViewPage(title: _itemData[5].name)));
+    _itemData.add(RouteBean(
+        'Colors Page', (context) => ColorsPage(title: _itemData[6].name)));
   }
 
   @override
