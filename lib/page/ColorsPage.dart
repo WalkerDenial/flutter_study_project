@@ -93,6 +93,8 @@ final List<_Palette> _allPalettes = <_Palette>[
   new _Palette(name: 'BLUE GREY', primary: Colors.blueGrey, threshold: 500),
 ];
 
+MaterialColor _appBarColor = _allPalettes[0].primary;
+
 class _ColorItem extends StatelessWidget {
   final int index;
   final Color color;
@@ -186,28 +188,52 @@ class _PaletteTabView extends StatelessWidget {
   }
 }
 
-class ColorsPage extends StatelessWidget {
+class ColorsPage extends StatefulWidget {
   final title;
   ColorsPage({this.title});
   @override
+  createState() => _ColorsPageState(title: title);
+}
+
+TabController _controller;
+
+class _ColorsPageState extends State<ColorsPage>
+    with SingleTickerProviderStateMixin {
+  final title;
+  _ColorsPageState({this.title});
+  @override
   Widget build(BuildContext context) {
+    if (_controller == null) {
+      _controller = TabController(vsync: this, length: _allPalettes.length);
+      _controller.addListener(_handleTabSelection);
+    }
     return DefaultTabController(
       length: _allPalettes.length,
       child: Scaffold(
         appBar: AppBar(
           title: Text(title),
           elevation: Dimens.elevationTitle,
+          backgroundColor: _appBarColor,
           bottom: TabBar(
             isScrollable: true,
             tabs: _allPalettes.map((swatch) => Tab(text: swatch.name)).toList(),
+            controller: _controller,
+            indicatorColor: _appBarColor[700],
           ),
         ),
         body: TabBarView(
           children: _allPalettes
               .map((colors) => _PaletteTabView(colors: colors))
               .toList(),
+          controller: _controller,
         ),
       ),
     );
+  }
+
+  void _handleTabSelection() {
+    setState(() {
+      _appBarColor = _allPalettes[_controller.index].primary;
+    });
   }
 }
