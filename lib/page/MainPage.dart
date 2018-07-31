@@ -11,24 +11,32 @@ import 'GridViewPage.dart';
 import 'ColorsPage.dart';
 
 class MainPage extends StatelessWidget {
-  
+  final _pageNames = [
+    'English List Page',
+    'Lake Page',
+    'Basic AppBar',
+    'TabBar & AppBar',
+    'Container Test',
+    'GrideView Test',
+    'Colors Page',
+  ];
   final _itemData = <RouteBean>[];
 
   void _initData(BuildContext context) {
-    _itemData.add(RouteBean('English List Page',
-        (context) => EnglishListPage(title: _itemData[0].name)));
     _itemData.add(RouteBean(
-        'Lake Page', (context) => LakePage(title: _itemData[1].name)));
+        _pageNames[0], (context) => EnglishListPage(title: _pageNames[0])));
+    _itemData.add(
+        RouteBean(_pageNames[1], (context) => LakePage(title: _pageNames[1])));
     _itemData.add(RouteBean(
-        'Basic AppBar', (context) => BasicAppBar(title: _itemData[2].name)));
-    _itemData.add(RouteBean('TabBar & AppBar',
-        (context) => TabBarAndAppBar(title: _itemData[3].name)));
-    _itemData.add(RouteBean('Container Test',
-        (context) => ContainerTestPage(title: _itemData[4].name)));
+        _pageNames[2], (context) => BasicAppBar(title: _pageNames[2])));
     _itemData.add(RouteBean(
-        'GrideView Test', (context) => GridViewPage(title: _itemData[5].name)));
+        _pageNames[3], (context) => TabBarAndAppBar(title: _pageNames[3])));
     _itemData.add(RouteBean(
-        'Colors Page', (context) => ColorsPage(title: _itemData[6].name)));
+        _pageNames[4], (context) => ContainerTestPage(title: _pageNames[4])));
+    _itemData.add(RouteBean(
+        _pageNames[5], (context) => GridViewPage(title: _pageNames[5])));
+    _itemData.add(RouteBean(
+        _pageNames[6], (context) => ColorsPage(title: _pageNames[6])));
   }
 
   @override

@@ -18,9 +18,8 @@ class EnglishListPage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.list),
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => FavoritePage(_saved),
-                )),
+            onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => FavoritePage(_saved))),
           )
         ],
       ),

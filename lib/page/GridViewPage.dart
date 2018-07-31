@@ -39,12 +39,10 @@ class _GridViewPageState extends State<GridViewPage> {
                         subtitle: Text(
                             'This is ${_titleList[index].pair.first.toLowerCase()} ${_titleList[index].pair.second.toLowerCase()}'),
                         trailing: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                _titleList[index].isFavorite =
-                                    !_titleList[index].isFavorite;
-                              });
-                            },
+                            onPressed: () => setState(() {
+                                  _titleList[index].isFavorite =
+                                      !_titleList[index].isFavorite;
+                                }),
                             icon: !_titleList[index].isFavorite
                                 ? Icon(Icons.star_border, color: Colors.white)
                                 : Icon(Icons.star, color: Colors.red)),

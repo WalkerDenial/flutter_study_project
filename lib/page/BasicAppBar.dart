@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 class BasicAppBar extends StatefulWidget {
   final String title;
-
   BasicAppBar({this.title});
-
   @override
   createState() => BasicAppBarState(title: title);
 }
@@ -15,11 +13,7 @@ class BasicAppBarState extends State<BasicAppBar> {
 
   BasicAppBarState({this.title});
 
-  void _select(_Choice choice) {
-    setState(() {
-      _selectedChoice = choice;
-    });
-  }
+  _select(choice) => setState(() => _selectedChoice = choice);
 
   @override
   Widget build(BuildContext context) {
@@ -29,27 +23,19 @@ class BasicAppBarState extends State<BasicAppBar> {
         actions: <Widget>[
           IconButton(
             icon: Icon(_choices[0].icon),
-            onPressed: () {
-              _select(_choices[0]);
-            },
+            onPressed: () => _select(_choices[0]),
           ),
           IconButton(
             icon: Icon(_choices[1].icon),
-            onPressed: () {
-              _select(_choices[1]);
-            },
+            onPressed: () => _select(_choices[1]),
           ),
           PopupMenuButton<_Choice>(
-            onSelected: _select,
-            itemBuilder: (BuildContext context) {
-              return _choices.skip(2).map((_Choice temp) {
-                return PopupMenuItem<_Choice>(
-                  value: temp,
-                  child: Text(temp.title),
-                );
-              }).toList();
-            },
-          ),
+              onSelected: _select,
+              itemBuilder: (context) => _choices
+                  .skip(2)
+                  .map((temp) => PopupMenuItem<_Choice>(
+                      value: temp, child: Text(temp.title)))
+                  .toList())
         ],
       ),
       body: Padding(

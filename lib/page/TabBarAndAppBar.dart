@@ -22,21 +22,21 @@ class TabBarAndAppBarState extends State<TabBarAndAppBar> {
           title: Text(title),
           bottom: TabBar(
             isScrollable: true,
-            tabs: _choices.map((_Choice item) {
-              return Tab(
-                text: item.title,
-                icon: Icon(item.icon),
-              );
-            }).toList(),
+            tabs: _choices
+                .map((item) => Tab(
+                      text: item.title,
+                      icon: Icon(item.icon),
+                    ))
+                .toList(),
           ),
         ),
         body: TabBarView(
-          children: _choices.map((_Choice item) {
-            return Padding(
-              padding: EdgeInsets.all(16.0),
-              child: _ChoiceCard(tmepChoice: item),
-            );
-          }).toList(),
+          children: _choices
+              .map((item) => Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: _ChoiceCard(tmepChoice: item),
+                  ))
+              .toList(),
         ),
       ),
     );

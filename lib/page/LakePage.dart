@@ -63,15 +63,13 @@ class _LakePage extends State<LakePage> {
           IconButton(
             icon: (_hasCollected ? Icon(Icons.star) : Icon(Icons.star_border)),
             color: Colors.red[500],
-            onPressed: () {
-              setState(() {
-                _hasCollected = !_hasCollected;
-                if (_hasCollected)
-                  _collectCounts++;
-                else
-                  _collectCounts--;
-              });
-            },
+            onPressed: () => setState(() {
+                  _hasCollected = !_hasCollected;
+                  if (_hasCollected)
+                    _collectCounts++;
+                  else
+                    _collectCounts--;
+                }),
           ),
           Text('$_collectCounts'),
         ],
