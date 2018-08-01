@@ -19,3 +19,4 @@
 1. Q: Android 启动白屏问题优化？<br/> A: 修改 `drawable/launch_background.xml` 文件，可以在启动时直接进行展示，解决白屏时间过长问题。
 2. 路由方式：<br/> ① 在程序入口配置 `routes` 集合，通过 `pushNamed` 方法进行跳转；<br/> ② 通过 `push` 方法直接跳转；
 3. `TabBar`、`TabBarView` 滑动切换事件处理，需要自定义 `TabController`，设置给 `controller`，即可实现效果；
+4. 在页面 `dispose()` 的时候，要释放掉页面变量，避免下次进入时候，由于变量资源没有及时回收而造成数据紊乱；
