@@ -206,6 +206,7 @@ class _ColorsPageState extends State<ColorsPage>
     if (_controller == null) {
       _controller = TabController(vsync: this, length: _allPalettes.length);
       _controller.addListener(_handleTabSelection);
+      _appBarColor = _allPalettes[0].primary;
     }
     return DefaultTabController(
       length: _allPalettes.length,
@@ -235,5 +236,11 @@ class _ColorsPageState extends State<ColorsPage>
     setState(() {
       _appBarColor = _allPalettes[_controller.index].primary;
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller = null;
   }
 }
