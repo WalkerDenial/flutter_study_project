@@ -234,13 +234,14 @@ class _ColorsPageState extends State<ColorsPage>
 
   void _handleTabSelection() {
     setState(() {
+      if (_controller == null) return;
       _appBarColor = _allPalettes[_controller.index].primary;
     });
   }
 
   @override
   void dispose() {
-    super.dispose();
     _controller = null;
+    super.dispose();
   }
 }
