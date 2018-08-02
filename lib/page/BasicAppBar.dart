@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class BasicAppBar extends StatefulWidget {
-  final String title;
+  final title;
   BasicAppBar({this.title});
   @override
   createState() => BasicAppBarState(title: title);
 }
 
 class BasicAppBarState extends State<BasicAppBar> {
-  final String title;
+  final title;
   _Choice _selectedChoice = _choices[0];
 
   BasicAppBarState({this.title});
@@ -47,8 +47,8 @@ class BasicAppBarState extends State<BasicAppBar> {
 }
 
 class _Choice {
-  final String title;
-  final IconData icon;
+  final title;
+  final icon;
   const _Choice({this.title, this.icon});
 }
 
@@ -62,12 +62,12 @@ const List<_Choice> _choices = const <_Choice>[
 ];
 
 class _ChoiceCard extends StatelessWidget {
-  final _Choice tmepChoice;
+  final tmepChoice;
 
   _ChoiceCard({this.tmepChoice});
   @override
   Widget build(BuildContext context) {
-    final TextStyle style = Theme.of(context).textTheme.display1;
+    final style = Theme.of(context).textTheme.display1;
     return Card(
       color: Colors.white,
       child: Center(

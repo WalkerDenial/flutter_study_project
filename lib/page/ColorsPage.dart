@@ -4,16 +4,16 @@ import '../constants/Dimens.dart';
 const double _kColorItemHeight = 48.0;
 
 class _Palette {
-  final String name;
-  final MaterialColor primary;
-  final MaterialAccentColor accent;
-  final int threshold;
+  final name;
+  final primary;
+  final accent;
+  final threshold;
   _Palette({this.name, this.primary, this.accent, this.threshold = 900});
 
   bool get isValid => name != null && primary != null && threshold != null;
 }
 
-final List<_Palette> _allPalettes = <_Palette>[
+final _allPalettes = <_Palette>[
   new _Palette(
       name: 'RED',
       primary: Colors.red,
@@ -96,9 +96,9 @@ final List<_Palette> _allPalettes = <_Palette>[
 MaterialColor _appBarColor = _allPalettes[0].primary;
 
 class _ColorItem extends StatelessWidget {
-  final int index;
-  final Color color;
-  final String prefix;
+  final index;
+  final color;
+  final prefix;
   const _ColorItem({
     Key key,
     @required this.index,
@@ -149,19 +149,17 @@ class _PaletteTabView extends StatelessWidget {
     900
   ];
   static const List<int> _accentKeys = const <int>[100, 200, 400, 700];
-  final _Palette colors;
+  final colors;
   _PaletteTabView({Key key, @required this.colors})
       : assert(colors != null && colors.isValid),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
-    final TextStyle whiteTextStyle =
-        textTheme.body1.copyWith(color: Colors.white);
-    final TextStyle blackTextStyle =
-        textTheme.body1.copyWith(color: Colors.black);
-    final List<Widget> colorItems = _primaryKeys.map((index) {
+    final textTheme = Theme.of(context).textTheme;
+    final whiteTextStyle = textTheme.body1.copyWith(color: Colors.white);
+    final blackTextStyle = textTheme.body1.copyWith(color: Colors.black);
+    final colorItems = _primaryKeys.map((index) {
       return DefaultTextStyle(
         style: index > colors.threshold ? whiteTextStyle : blackTextStyle,
         child: _ColorItem(
@@ -241,6 +239,7 @@ class _ColorsPageState extends State<ColorsPage>
 
   @override
   void dispose() {
+    _controller.dispose();
     _controller = null;
     super.dispose();
   }

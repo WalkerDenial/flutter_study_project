@@ -9,6 +9,7 @@ import 'TabBarAndAppBar.dart';
 import 'ContainerTestPage.dart';
 import 'GridViewPage.dart';
 import 'ColorsPage.dart';
+import 'BottomAppBarPage.dart';
 
 class MainPage extends StatelessWidget {
   final _pageNames = [
@@ -19,6 +20,7 @@ class MainPage extends StatelessWidget {
     'Container Test',
     'GrideView Test',
     'Colors Page',
+    'BottomAppBar Page'
   ];
   final _itemData = <RouteBean>[];
 
@@ -37,6 +39,8 @@ class MainPage extends StatelessWidget {
         _pageNames[5], (context) => GridViewPage(title: _pageNames[5])));
     _itemData.add(RouteBean(
         _pageNames[6], (context) => ColorsPage(title: _pageNames[6])));
+    _itemData.add(RouteBean(
+        _pageNames[7], (context) => BottomAppBarPage(title: _pageNames[7])));
   }
 
   @override

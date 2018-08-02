@@ -12,6 +12,7 @@
 6. `首页 --> Container Test` -->  学习 Container 使用及边框添加、圆角的实现；
 7. `首页 --> GrideView Test` -->  学习 GrideView 使用，添加底部说明模块，及点击事件的处理；
 8. `首页 --> Colors Page` -->  学习 TabBar、TabBarView、ListView、AppBar 的联动处理及界面展示；
+9. `首页 --> BottomAppBar Page` -->  扩展 AppBar，添加 bottom，以及 action 操作；
 
 
 ## 遇到的问题点：

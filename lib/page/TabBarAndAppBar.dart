@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TabBarAndAppBar extends StatefulWidget {
-  final String title;
+  final title;
 
   TabBarAndAppBar({this.title});
 
@@ -10,7 +10,7 @@ class TabBarAndAppBar extends StatefulWidget {
 }
 
 class TabBarAndAppBarState extends State<TabBarAndAppBar> {
-  final String title;
+  final title;
   TabBarAndAppBarState({this.title});
 
   @override
@@ -44,8 +44,8 @@ class TabBarAndAppBarState extends State<TabBarAndAppBar> {
 }
 
 class _Choice {
-  final String title;
-  final IconData icon;
+  final title;
+  final icon;
   const _Choice({this.title, this.icon});
 }
 
@@ -59,12 +59,12 @@ const List<_Choice> _choices = const <_Choice>[
 ];
 
 class _ChoiceCard extends StatelessWidget {
-  final _Choice tmepChoice;
+  final tmepChoice;
 
   _ChoiceCard({this.tmepChoice});
   @override
   Widget build(BuildContext context) {
-    final TextStyle style = Theme.of(context).textTheme.display1;
+    final style = Theme.of(context).textTheme.display1;
     return Card(
       color: Colors.white,
       child: Center(
