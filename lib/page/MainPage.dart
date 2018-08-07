@@ -11,6 +11,9 @@ import 'GridViewPage.dart';
 import 'ColorsPage.dart';
 import 'BottomAppBarPage.dart';
 import 'AnimateListPage.dart';
+import 'ExpansionPage.dart';
+import 'FadeAnimationPage.dart';
+import 'SignaturePage.dart';
 
 class MainPage extends StatelessWidget {
   final _pageNames = [
@@ -22,7 +25,10 @@ class MainPage extends StatelessWidget {
     'GrideView Test',
     'Colors Page',
     'BottomAppBar Page',
-    'AnimateList Page'
+    'AnimateList Page',
+    'Expansion Page',
+    'FadeAnimation Page',
+    'Signature Page',
   ];
   final _itemData = <RouteBean>[];
 
@@ -45,6 +51,12 @@ class MainPage extends StatelessWidget {
         _pageNames[7], (context) => BottomAppBarPage(title: _pageNames[7])));
     _itemData.add(RouteBean(
         _pageNames[8], (context) => AnimateListPage(title: _pageNames[8])));
+    _itemData.add(RouteBean(
+        _pageNames[9], (context) => ExpansionPage(title: _pageNames[9])));
+    _itemData.add(RouteBean(
+        _pageNames[10], (context) => FadeAnimationPage(title: _pageNames[10])));
+    _itemData.add(RouteBean(
+        _pageNames[11], (context) => SignaturePage(title: _pageNames[11])));
   }
 
   @override
