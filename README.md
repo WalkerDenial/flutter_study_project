@@ -21,8 +21,25 @@
 
 ## 遇到的问题点：
 
-1. Q: Android 启动白屏问题优化？<br/> A: 修改 `drawable/launch_background.xml` 文件，可以在启动时直接进行展示，解决白屏时间过长问题。
-2. Q: 路由方式：<br/> A: ① 在程序入口配置 `routes` 集合，通过 `pushNamed` 方法进行跳转；<br/> ② 通过 `push` 方法直接跳转；
-3. Q: `TabBar`、`TabBarView` 滑动切换事件如何处理?<br/>A: 需要自定义 `TabController`，设置给 `controller`，即可实现效果；
-4. Q: 由于数据缓存而导致界面数据紊乱如何处理？<br/>A: 在页面 `dispose()` 的时候，要释放掉页面变量，避免下次进入时候，由于变量资源没有及时回收而造成数据紊乱；
-5. Q: GestureDetector 作为 child 时，界面无任何响应是原因？<br/>A: GestureDetector 没有宽度和高度，默认会变成 0，如果要自定义大小，需要父控件设置内容区域，可参考容器 `SizedBox`；
+1. Q: Android 启动白屏问题优化？
+
+	A: 修改 `drawable/launch_background.xml` 文件，可以在启动时直接进行展示，解决白屏时间过长问题。
+
+2. Q: 路由方式有哪些？
+
+	A: ① 在程序入口配置 `routes` 集合，通过 `pushNamed` 方法进行跳转；② 通过 `push` 方法直接跳转；
+
+
+3. Q: `TabBar`、`TabBarView` 滑动切换事件如何处理?
+
+	A: 需要自定义 `TabController`，设置给 `controller`，即可实现效果；
+
+
+4. Q: 由于数据缓存而导致界面数据紊乱如何处理？
+
+	A: 在页面 `dispose()` 的时候，要释放掉页面变量，避免下次进入时候，由于变量资源没有及时回收而造成数据紊乱；
+
+
+5. Q: GestureDetector 作为 child 时，界面无任何响应是原因？
+
+	A: GestureDetector 没有宽度和高度，默认会变成 0，如果要自定义大小，需要父控件设置内容区域，可参考容器 `SizedBox`；
