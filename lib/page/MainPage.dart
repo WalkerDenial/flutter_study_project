@@ -14,6 +14,8 @@ import 'AnimateListPage.dart';
 import 'ExpansionPage.dart';
 import 'FadeAnimationPage.dart';
 import 'SignaturePage.dart';
+import 'DataLoaderPage.dart';
+import 'InputTestPage.dart';
 
 class MainPage extends StatelessWidget {
   final _pageNames = [
@@ -29,6 +31,8 @@ class MainPage extends StatelessWidget {
     'Expansion Page',
     'FadeAnimation Page',
     'Signature Page',
+    'DataLoader Page',
+    'InputTest Page'
   ];
   final _itemData = <RouteBean>[];
 
@@ -57,6 +61,10 @@ class MainPage extends StatelessWidget {
         _pageNames[10], (context) => FadeAnimationPage(title: _pageNames[10])));
     _itemData.add(RouteBean(
         _pageNames[11], (context) => SignaturePage(title: _pageNames[11])));
+    _itemData.add(RouteBean(
+        _pageNames[12], (context) => DataLoaderPage(title: _pageNames[12])));
+    _itemData.add(RouteBean(
+        _pageNames[13], (context) => InputTestPage(title: _pageNames[13])));
   }
 
   @override
