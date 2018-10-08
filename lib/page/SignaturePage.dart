@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_statusbar/flutter_statusbar.dart';
 import '../constants/Dimens.dart';
 
-double statusBarHeight;
+double statusBarHeight, appBarHeight;
 
 class SignaturePage extends StatefulWidget {
   final title;
@@ -25,11 +25,13 @@ class _SignatureState extends State<SignaturePage> {
   _SignatureState({this.title});
   @override
   Widget build(BuildContext context) {
+    AppBar appBar = AppBar(
+      title: Text(title),
+      elevation: Dimens.elevationTitle,
+    );
+    appBarHeight = appBar.preferredSize.height;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        elevation: Dimens.elevationTitle,
-      ),
+      appBar: appBar,
       body: Center(
         child: SizedBox.expand(
           child: GestureDetector(
@@ -38,7 +40,8 @@ class _SignatureState extends State<SignaturePage> {
                   Offset localPosition =
                       referenceBox.globalToLocal(details.globalPosition);
                   _points = new List.from(_points)
-                    ..add(localPosition - Offset(0.0, statusBarHeight));
+                    ..add(localPosition -
+                        Offset(0.0, statusBarHeight + appBarHeight));
                 }),
             onPanEnd: (details) => _points.add(null),
             child: CustomPaint(painter: new SignaturePainter(_points)),
