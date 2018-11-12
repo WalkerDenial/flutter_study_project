@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
   flutter_statusbar: a563eb9416256f17660646aceb2314b113127da9
-  fluttertoast: ad0527b15297baf11349f3f581dae4d40f24f340
+  fluttertoast: 0a20dcbbb8ecfd1a61b6285651ff2d5989d033fb
 
 PODFILE CHECKSUM: 1e5af4103afd21ca5ead147d7b81d06f494f51a2
 

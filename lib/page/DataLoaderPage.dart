@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'dart:async';
-import 'dart:isolate';
 import '../constants/Dimens.dart';
 
 class DataLoaderPage extends StatelessWidget {
@@ -60,33 +58,17 @@ class _ChildWidgetState extends State<_ChildWidget> {
       );
 
   loadData() async {
-    ReceivePort receivePort = ReceivePort();
-    await Isolate.spawn(dataloader, receivePort.sendPort);
+    // ReceivePort receivePort = ReceivePort();
+    // await Isolate.spawn(dataloader, receivePort.sendPort);
 
-    SendPort sendPort = await receivePort.first;
+    // SendPort sendPort = await receivePort.first;
 
-    List msg = await sendReceive(
-        sendPort, 'https://jsonplaceholder.typicode.com/posts');
+    // c msg = await sendReceive(
+    //     sendPort, 'https://jsonplaceholder.typicode.com/posts');
 
-    setState(() => widgets = msg);
-  }
-
-  static dataloader(SendPort sendPort) async {
-    ReceivePort port = ReceivePort();
-    sendPort.send(port.sendPort);
-    await for (var msg in port) {
-      String date = msg[0];
-      SendPort replyTo = msg[1];
-
-      String dataURL = date;
-      http.Response response = await http.get(dataURL);
-      replyTo.send(jsonDecode(response.body));
-    }
-  }
-
-  Future sendReceive(SendPort port, msg) {
-    ReceivePort response = ReceivePort();
-    port.send([msg, response.sendPort]);
-    return response.first;
+    // setState(() => widgets = msg);
+    final response =
+        await http.get('https://jsonplaceholder.typicode.com/posts');
+    setState(() => widgets = json.decode(response.body));
   }
 }
