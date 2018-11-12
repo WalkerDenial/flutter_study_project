@@ -40,8 +40,8 @@ class _SignatureState extends State<SignaturePage> {
                   Offset localPosition =
                       referenceBox.globalToLocal(details.globalPosition);
                   _points = new List.from(_points)
-                    ..add(localPosition -
-                        Offset(0.0, statusBarHeight + appBarHeight));
+                    ..add(localPosition - Offset(0.0, statusBarHeight));
+                  // ..add(localPosition - Offset(0.0, statusBarHeight + appBarHeight));
                 }),
             onPanEnd: (details) => _points.add(null),
             child: CustomPaint(painter: new SignaturePainter(_points)),
