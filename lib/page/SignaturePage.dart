@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbar/flutter_statusbar.dart';
+import 'dart:io' show Platform;
 import '../constants/Dimens.dart';
 
 double statusBarHeight, appBarHeight;
@@ -40,8 +41,12 @@ class _SignatureState extends State<SignaturePage> {
                   Offset localPosition =
                       referenceBox.globalToLocal(details.globalPosition);
                   _points = new List.from(_points)
-                    ..add(localPosition - Offset(0.0, statusBarHeight));
-                  // ..add(localPosition - Offset(0.0, statusBarHeight + appBarHeight));
+                    ..add(localPosition -
+                        Offset(
+                            0.0,
+                            Platform.isAndroid
+                                ? statusBarHeight
+                                : (statusBarHeight + appBarHeight)));
                 }),
             onPanEnd: (details) => _points.add(null),
             child: CustomPaint(painter: new SignaturePainter(_points)),
