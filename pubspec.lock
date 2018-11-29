@@ -42,7 +42,7 @@ packages:
       name: english_words
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.4"
+    version: "3.1.5"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -66,7 +66,7 @@ packages:
       name: fluttertoast
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   http:
     dependency: "direct main"
     description:

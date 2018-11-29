@@ -6,13 +6,13 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios`)
+  - Flutter (from `.symlinks/flutter/ios-release`)
   - flutter_statusbar (from `.symlinks/plugins/flutter_statusbar/ios`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios"
+    :path: ".symlinks/flutter/ios-release"
   flutter_statusbar:
     :path: ".symlinks/plugins/flutter_statusbar/ios"
   fluttertoast:
