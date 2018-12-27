@@ -27,8 +27,10 @@ class _ChildWidgetState extends State<_ChildWidget> {
   Widget build(BuildContext context) {
     return Center(
       child: TextField(
-        onSubmitted: (text) => setState(()=> _errorText = isEmail(text) ? null : 'Error: this is not an email'),
-        decoration: InputDecoration(hintText: 'This is hint', errorText: _getErrorText()),
+        onSubmitted: (text) => setState(() =>
+            _errorText = isEmail(text) ? null : 'Error: this is not an email'),
+        decoration: InputDecoration(
+            hintText: 'This is hint', errorText: _getErrorText()),
       ),
     );
   }
@@ -38,7 +40,7 @@ class _ChildWidgetState extends State<_ChildWidget> {
   bool isEmail(String em) {
     String emailRegexp =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regExp = new RegExp(emailRegexp);
+    RegExp regExp = RegExp(emailRegexp);
     return regExp.hasMatch(em);
   }
 }

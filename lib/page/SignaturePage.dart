@@ -40,7 +40,7 @@ class _SignatureState extends State<SignaturePage> {
                   RenderBox referenceBox = context.findRenderObject();
                   Offset localPosition =
                       referenceBox.globalToLocal(details.globalPosition);
-                  _points = new List.from(_points)
+                  _points = List.from(_points)
                     ..add(localPosition -
                         Offset(
                             0.0,
@@ -49,7 +49,7 @@ class _SignatureState extends State<SignaturePage> {
                                 : (statusBarHeight + appBarHeight)));
                 }),
             onPanEnd: (details) => _points.add(null),
-            child: CustomPaint(painter: new SignaturePainter(_points)),
+            child: CustomPaint(painter: SignaturePainter(_points)),
           ),
         ),
       ),
@@ -61,7 +61,7 @@ class SignaturePainter extends CustomPainter {
   SignaturePainter(this.points);
   final List<Offset> points;
   void paint(Canvas canvas, Size size) {
-    Paint paint = new Paint()
+    Paint paint = Paint()
       ..color = Colors.black
       ..strokeCap = StrokeCap.round
       ..strokeWidth = 5.0;
