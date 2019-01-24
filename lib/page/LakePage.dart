@@ -18,7 +18,7 @@ class _LakePage extends State<LakePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        elevation: Dimens.elevationTitle,
+        elevation: Dimens.ELEVATION_TITLE,
       ),
       body: ListView(
         children: <Widget>[

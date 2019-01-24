@@ -15,12 +15,12 @@ class FavoritePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(Strings.favoritePage),
-        elevation: Dimens.elevationTitle,
+        elevation: Dimens.ELEVATION_TITLE,
       ),
       body: ListView.builder(
         itemCount: _pair.length * 2,
         itemBuilder: (context, index) {
-          if (index.isOdd) return Divider(height: Dimens.divideHeight);
+          if (index.isOdd) return Divider(height: Dimens.DIVIDE_HEIGHT);
           return ListTile(
             title: Text(_pair[index ~/ 2].asPascalCase),
             subtitle: Text('This is ${_pair[index ~/ 2].asPascalCase}.'),

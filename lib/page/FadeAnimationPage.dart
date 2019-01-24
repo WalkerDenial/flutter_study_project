@@ -31,7 +31,7 @@ class _FadeAnimationState extends State<FadeAnimationPage>
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        elevation: Dimens.elevationTitle,
+        elevation: Dimens.ELEVATION_TITLE,
       ),
       body: Center(
         child: Container(

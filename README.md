@@ -19,6 +19,7 @@
 13. `首页 --> Signature Page` --> 学习 Painter、Paint、Canvas 的使用，以达到自定义控件及效果的目的；
 14. `首页 --> DataLoader Page` --> 学习 ProgressIndicator 和 http 的使用；
 15. `首页 --> InputTest Page` -->  学习 TextFiled 的使用；
+16. `首页 --> SelfProgressBar Page` -->  自定义 ProgressBar；
 
 
 ## 遇到的问题点：

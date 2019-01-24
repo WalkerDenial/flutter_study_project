@@ -11,7 +11,7 @@ class DataLoaderPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        elevation: Dimens.elevationTitle,
+        elevation: Dimens.ELEVATION_TITLE,
       ),
       body: _ChildWidget(),
     );
@@ -53,7 +53,7 @@ class _ChildWidgetState extends State<_ChildWidget> {
             padding: EdgeInsets.all(10.0),
             child: Text('Row ${widgets[i]['title']}'),
           ),
-          Divider(height: Dimens.divideHeight),
+          Divider(height: Dimens.DIVIDE_HEIGHT),
         ],
       );
 

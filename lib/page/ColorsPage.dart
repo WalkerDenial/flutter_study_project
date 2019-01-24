@@ -209,7 +209,7 @@ class _ColorsPageState extends State<ColorsPage>
       child: Scaffold(
         appBar: AppBar(
           title: Text(title),
-          elevation: Dimens.elevationTitle,
+          elevation: Dimens.ELEVATION_TITLE,
           backgroundColor: _appBarColor,
           bottom: TabBar(
             isScrollable: true,

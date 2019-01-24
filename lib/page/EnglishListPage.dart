@@ -14,7 +14,7 @@ class EnglishListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        elevation: Dimens.elevationTitle,
+        elevation: Dimens.ELEVATION_TITLE,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.list),
@@ -39,7 +39,7 @@ class _EnglishListPageState extends State<_EnglishListPage> {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemBuilder: (context, index) {
-        if (index.isOdd) return Divider(height: Dimens.divideHeight);
+        if (index.isOdd) return Divider(height: Dimens.DIVIDE_HEIGHT);
         final i = index ~/ 2;
         if (i >= _suggestoins.length)
           _suggestoins.addAll(generateWordPairs().take(10));

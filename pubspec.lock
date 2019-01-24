@@ -48,6 +48,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_screenutil:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "2c0600a83584625de7e110e51aab9ba6f9eebe13"
+      url: "git://github.com/openflutter/flutter_screenutil"
+    source: git
+    version: "0.4.6"
   flutter_statusbar:
     dependency: "direct main"
     description:

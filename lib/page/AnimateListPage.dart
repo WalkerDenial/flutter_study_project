@@ -63,7 +63,7 @@ class _AnimateListPageState extends State<AnimateListPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        elevation: Dimens.elevationTitle,
+        elevation: Dimens.ELEVATION_TITLE,
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add_circle),

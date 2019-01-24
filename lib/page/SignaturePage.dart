@@ -28,7 +28,7 @@ class _SignatureState extends State<SignaturePage> {
   Widget build(BuildContext context) {
     AppBar appBar = AppBar(
       title: Text(title),
-      elevation: Dimens.elevationTitle,
+      elevation: Dimens.ELEVATION_TITLE,
     );
     appBarHeight = appBar.preferredSize.height;
     return Scaffold(

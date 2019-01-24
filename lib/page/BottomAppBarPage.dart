@@ -83,7 +83,7 @@ class _BottomAppBarState extends State<BottomAppBarPage>
     return Scaffold(
         appBar: AppBar(
           title: Text(title),
-          elevation: Dimens.elevationTitle,
+          elevation: Dimens.ELEVATION_TITLE,
           leading: IconButton(
             tooltip: 'Previous choice',
             icon: Icon(Icons.arrow_back),

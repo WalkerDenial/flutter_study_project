@@ -16,6 +16,8 @@ import 'FadeAnimationPage.dart';
 import 'SignaturePage.dart';
 import 'DataLoaderPage.dart';
 import 'InputTestPage.dart';
+import 'SelfProgressBarPage.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainPage extends StatelessWidget {
   final _pageNames = [
@@ -32,7 +34,8 @@ class MainPage extends StatelessWidget {
     'FadeAnimation Page',
     'Signature Page',
     'DataLoader Page',
-    'InputTest Page'
+    'InputTest Page',
+    'SelfProgressBar Page'
   ];
   final _itemData = <RouteBean>[];
 
@@ -65,16 +68,19 @@ class MainPage extends StatelessWidget {
         _pageNames[12], (context) => DataLoaderPage(title: _pageNames[12])));
     _itemData.add(RouteBean(
         _pageNames[13], (context) => InputTestPage(title: _pageNames[13])));
+    _itemData.add(RouteBean(_pageNames[14],
+        (context) => SelfProgressBarPage(title: _pageNames[14])));
   }
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     _initData(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(Strings.home),
         centerTitle: true,
-        elevation: Dimens.elevationTitle,
+        elevation: Dimens.ELEVATION_TITLE,
       ),
       body: _buildNavigationList(),
     );
@@ -84,7 +90,7 @@ class MainPage extends StatelessWidget {
     return ListView.builder(
       itemCount: _itemData.length * 2,
       itemBuilder: (context, index) => index.isOdd
-          ? Divider(height: Dimens.divideHeight)
+          ? Divider(height: Dimens.DIVIDE_HEIGHT)
           : ListTile(
               title: Text(_itemData[index ~/ 2].toString()),
               onTap: () => Navigator.of(context).push(

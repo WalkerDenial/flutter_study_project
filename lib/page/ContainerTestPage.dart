@@ -9,7 +9,7 @@ class ContainerTestPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        elevation: Dimens.elevationTitle,
+        elevation: Dimens.ELEVATION_TITLE,
       ),
       body: Container(
         decoration: BoxDecoration(

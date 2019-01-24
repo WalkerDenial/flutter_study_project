@@ -21,7 +21,7 @@ class _GridViewPageState extends State<GridViewPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
-        elevation: Dimens.elevationTitle,
+        elevation: Dimens.ELEVATION_TITLE,
       ),
       body: GridView.extent(
         maxCrossAxisExtent: 180.0,
