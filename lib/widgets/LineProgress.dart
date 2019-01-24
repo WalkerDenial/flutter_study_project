@@ -125,7 +125,7 @@ class SelfProgressPainter extends CustomPainter {
         (_spaceWidth - Dimens.DEFAULT_SUB_LINE_COUNTS * _lineStoke) /
             (Dimens.DEFAULT_SUB_LINE_COUNTS + 1);
     for (int i = 0; i < _lineLists?.length; i += 2) {
-      if ((_lineLists[i].dx + _lineStoke) >= width) break;
+      if ((_lineLists[i].dx - _lineStoke) >= width) break;
       for (int j = Dimens.DEFAULT_SUB_LINE_COUNTS; j > 0; j--) {
         double x1 = _lineLists[i].dx - j * (_subSpaceWidth + _lineStoke);
         double x2 = _lineLists[i + 1].dx - j * (_subSpaceWidth + _lineStoke);
