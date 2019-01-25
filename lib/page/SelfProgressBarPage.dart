@@ -28,6 +28,7 @@ class _SelfProgressBarState extends State<SelfProgressBarPage> {
                     isProgressAvaliable(text) ? int.parse(text) : 0),
                 decoration: InputDecoration(
                     hintText: '请输入进度', errorText: "进度必须在0~100之间"),
+                keyboardType: TextInputType.number,
               ),
               margin: EdgeInsets.only(left: 20, top: 20, right: 20),
             ),
