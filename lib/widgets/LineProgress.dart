@@ -69,6 +69,7 @@ class SelfProgressPainter extends CustomPainter {
   final double _lineStoke = 1.0;
   double _spaceWidth;
   double _progressWidth;
+  bool isCompleted = false;
   List<Offset> _lineLists, _subLineLists;
   SelfProgressPainter({this.progress, this.linesCounts});
   @override
@@ -79,17 +80,13 @@ class SelfProgressPainter extends CustomPainter {
       ..strokeWidth = _lineStoke;
 
     _lineLists = _calcLineLists(size.width, size.height);
-    for (int i = 0; i < _lineLists?.length; i += 2) {
+    for (int i = 0; i < _lineLists?.length; i += 2)
       canvas.drawLine(_lineLists[i], _lineLists[i + 1], paint);
-    }
 
-    _lineLists.first = Offset(-_spaceWidth, 0);
-    _lineLists.last = Offset(size.width + _spaceWidth, size.height);
     _progressWidth = size.width * progress / Dimens.MAX_PROGRESS;
     _subLineLists = _calcSubLineLists(_progressWidth, size.height);
-    for (int i = 0; i < _subLineLists?.length; i += 2) {
+    for (int i = 0; i < _subLineLists?.length; i += 2)
       canvas.drawLine(_subLineLists[i], _subLineLists[i + 1], paint);
-    }
   }
 
   @override
@@ -104,16 +101,15 @@ class SelfProgressPainter extends CustomPainter {
       double x2 = tempX + _spaceWidth;
       double y1 = 0;
       double y2 = height;
-      if (x1 < 0) {
+      if (x1 < 0)
         lists.add(Offset(0, y2 - (x2 - 0) * height / 2 / _spaceWidth));
-      } else {
+      else
         lists.add(Offset(x1, y1));
-      }
-      if (x2 > width) {
+
+      if (x2 > width)
         lists.add(Offset(width, y2 - (x2 - width) * y2 / 2 / _spaceWidth));
-      } else {
+      else
         lists.add(Offset(x2, y2));
-      }
     }
     return lists;
   }
@@ -124,8 +120,18 @@ class SelfProgressPainter extends CustomPainter {
     double _subSpaceWidth =
         (_spaceWidth - Dimens.DEFAULT_SUB_LINE_COUNTS * _lineStoke) /
             (Dimens.DEFAULT_SUB_LINE_COUNTS + 1);
-    for (int i = 0; i < _lineLists?.length; i += 2) {
-      if ((_lineLists[i].dx - _lineStoke) >= width) break;
+    _lineLists.first = Offset(-_spaceWidth - _lineStoke, _lineLists.first.dy);
+    _lineLists.last = Offset(
+        _lineLists.last.dx + _spaceWidth + _lineStoke, _lineLists.last.dy);
+    Offset extraTop = Offset(
+        _lineLists[_lineLists.length - 2].dx + _lineStoke + _spaceWidth,
+        _lineLists[_lineLists.length - 2].dy);
+    Offset extraBottom = Offset(
+        _lineLists.last.dx + _lineStoke + _spaceWidth, _lineLists.last.dy);
+    _lineLists.add(extraTop);
+    _lineLists.add(extraBottom);
+    isCompleted = false;
+    for (int i = 0; i < _lineLists.length; i += 2) {
       for (int j = Dimens.DEFAULT_SUB_LINE_COUNTS; j > 0; j--) {
         double x1 = _lineLists[i].dx - j * (_subSpaceWidth + _lineStoke);
         double x2 = _lineLists[i + 1].dx - j * (_subSpaceWidth + _lineStoke);
@@ -141,7 +147,18 @@ class SelfProgressPainter extends CustomPainter {
         } else {
           lists.add(Offset(x2, y2));
         }
+        if (lists.length > 2 &&
+            (lists[lists.length - 2].dx + _subSpaceWidth + _lineStoke) >=
+                width) {
+          isCompleted = true;
+          if (lists[lists.length - 2].dx > lists[lists.length - 1].dx) {
+            lists.removeLast();
+            lists.removeLast();
+          }
+          break;
+        }
       }
+      if (isCompleted) break;
     }
     return lists;
   }
