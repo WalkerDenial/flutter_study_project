@@ -23,13 +23,17 @@ class LineProgress extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(left: 8, right: 8),
-                child: Text(
-                  '$_progress%',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 21,
-                    fontWeight: FontWeight.w700,
+                padding: EdgeInsets.only(left: 6, right: 6),
+                child: SizedBox(
+                  width: 52,
+                  child: Text(
+                    '$_progress%',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 21,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               )
@@ -71,6 +75,7 @@ class SelfProgressPainter extends CustomPainter {
   double _progressWidth;
   bool isCompleted = false;
   List<Offset> _lineLists, _subLineLists;
+  Offset oldFirst, oldLast;
   SelfProgressPainter({this.progress, this.linesCounts});
   @override
   void paint(Canvas canvas, Size size) {
@@ -101,15 +106,19 @@ class SelfProgressPainter extends CustomPainter {
       double x2 = tempX + _spaceWidth;
       double y1 = 0;
       double y2 = height;
-      if (x1 < 0)
+      if (x1 < 0) {
+        oldFirst = Offset(x1, y1);
         lists.add(Offset(0, y2 - (x2 - 0) * height / 2 / _spaceWidth));
-      else
+      } else {
         lists.add(Offset(x1, y1));
+      }
 
-      if (x2 > width)
+      if (x2 > width) {
+        oldLast = Offset(x2, y2);
         lists.add(Offset(width, y2 - (x2 - width) * y2 / 2 / _spaceWidth));
-      else
+      } else {
         lists.add(Offset(x2, y2));
+      }
     }
     return lists;
   }
@@ -120,16 +129,10 @@ class SelfProgressPainter extends CustomPainter {
     double _subSpaceWidth =
         (_spaceWidth - Dimens.DEFAULT_SUB_LINE_COUNTS * _lineStoke) /
             (Dimens.DEFAULT_SUB_LINE_COUNTS + 1);
-    _lineLists.first = Offset(-_spaceWidth - _lineStoke, _lineLists.first.dy);
-    _lineLists.last = Offset(
-        _lineLists.last.dx + _spaceWidth + _lineStoke, _lineLists.last.dy);
-    Offset extraTop = Offset(
-        _lineLists[_lineLists.length - 2].dx + _lineStoke + _spaceWidth,
-        _lineLists[_lineLists.length - 2].dy);
-    Offset extraBottom = Offset(
-        _lineLists.last.dx + _lineStoke + _spaceWidth, _lineLists.last.dy);
-    _lineLists.add(extraTop);
-    _lineLists.add(extraBottom);
+    _lineLists.first = oldFirst;
+    _lineLists.last = oldLast;
+    _lineLists.add(Offset(oldLast.dx + _lineStoke - _spaceWidth, oldFirst.dy));
+    _lineLists.add(Offset(oldLast.dx + _lineStoke + _spaceWidth, oldLast.dy));
     isCompleted = false;
     for (int i = 0; i < _lineLists.length; i += 2) {
       for (int j = Dimens.DEFAULT_SUB_LINE_COUNTS; j > 0; j--) {
