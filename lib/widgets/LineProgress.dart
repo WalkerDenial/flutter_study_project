@@ -80,7 +80,7 @@ class SelfProgressPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Colors.black
+      ..color = Colors.grey
       ..strokeCap = StrokeCap.round
       ..strokeWidth = _lineStoke;
 
@@ -88,6 +88,7 @@ class SelfProgressPainter extends CustomPainter {
     for (int i = 0; i < _lineLists?.length; i += 2)
       canvas.drawLine(_lineLists[i], _lineLists[i + 1], paint);
 
+    paint.color = Colors.black;
     _progressWidth = size.width * progress / Dimens.MAX_PROGRESS;
     _subLineLists = _calcSubLineLists(_progressWidth, size.height);
     for (int i = 0; i < _subLineLists?.length; i += 2)
@@ -135,7 +136,7 @@ class SelfProgressPainter extends CustomPainter {
     _lineLists.add(Offset(oldLast.dx + _lineStoke + _spaceWidth, oldLast.dy));
     isCompleted = false;
     for (int i = 0; i < _lineLists.length; i += 2) {
-      for (int j = Dimens.DEFAULT_SUB_LINE_COUNTS; j > 0; j--) {
+      for (int j = Dimens.DEFAULT_SUB_LINE_COUNTS; j >= 0; j--) {
         double x1 = _lineLists[i].dx - j * (_subSpaceWidth + _lineStoke);
         double x2 = _lineLists[i + 1].dx - j * (_subSpaceWidth + _lineStoke);
         double y1 = 0;
@@ -150,11 +151,9 @@ class SelfProgressPainter extends CustomPainter {
         } else {
           lists.add(Offset(x2, y2));
         }
-        if (lists.length > 2 &&
-            (lists[lists.length - 2].dx + _subSpaceWidth + _lineStoke) >=
-                width) {
+        if (lists.length > 2 && (x1 + _subSpaceWidth + _lineStoke) >= width) {
           isCompleted = true;
-          if (lists[lists.length - 2].dx > lists[lists.length - 1].dx) {
+          if (x1 > lists[lists.length - 1].dx) {
             lists.removeLast();
             lists.removeLast();
           }
