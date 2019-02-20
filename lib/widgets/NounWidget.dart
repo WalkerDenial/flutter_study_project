@@ -17,6 +17,7 @@ class _NounPainter extends CustomPainter {
   final minLength = 20.0;
   final lineWidth = 4.0;
   final lineCounts = 6;
+  final middleValue = 0.5;
   double _value;
   double _minL, _maxL;
   Paint _paint;
@@ -50,11 +51,11 @@ class _NounPainter extends CustomPainter {
     endOffsets.add(Offset(endOffsets[0].dx, -endOffsets[0].dy));
   }
 
-  double _calcMinLength() => _value < 0.5
+  double _calcMinLength() => _value < middleValue
       ? minLength
-      : minLength + (maxLength - minLength) * (_value - 0.5) * 2;
+      : minLength + (maxLength - minLength) * (_value - middleValue) * 2;
 
-  double _calcMaxLength() => _value >= 0.5
+  double _calcMaxLength() => _value >= middleValue
       ? maxLength
       : minLength + (maxLength - minLength) * _value * 2;
 
@@ -62,7 +63,7 @@ class _NounPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    if (_minL > minLength && (_minL + 0.5) >= _maxL) return;
+    if (_minL > minLength && (_minL + middleValue) >= _maxL) return;
     for (var i = 0; i < lineCounts; i++)
       canvas.drawLine(startOffsets[i], endOffsets[i], _paint);
   }
