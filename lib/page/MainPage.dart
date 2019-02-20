@@ -17,6 +17,7 @@ import 'SignaturePage.dart';
 import 'DataLoaderPage.dart';
 import 'InputTestPage.dart';
 import 'SelfProgressBarPage.dart';
+import 'NounPage.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainPage extends StatelessWidget {
@@ -35,7 +36,8 @@ class MainPage extends StatelessWidget {
     'Signature Page',
     'DataLoader Page',
     'InputTest Page',
-    'SelfProgressBar Page'
+    'SelfProgressBar Page',
+    'Noun Page'
   ];
   final _itemData = <RouteBean>[];
 
@@ -70,6 +72,8 @@ class MainPage extends StatelessWidget {
         _pageNames[13], (context) => InputTestPage(title: _pageNames[13])));
     _itemData.add(RouteBean(_pageNames[14],
         (context) => SelfProgressBarPage(title: _pageNames[14])));
+    _itemData.add(
+        RouteBean(_pageNames[15], (context) => NounPage(title: _pageNames[15])));
   }
 
   @override

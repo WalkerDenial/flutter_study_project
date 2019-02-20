@@ -20,6 +20,7 @@
 14. `首页 --> DataLoader Page` --> 学习 ProgressIndicator 和 http 的使用；
 15. `首页 --> InputTest Page` -->  学习 TextFiled 的使用；
 16. `首页 --> SelfProgressBar Page` -->  自定义 ProgressBar；
+17. `首页 --> Noun Page` -->  自定义 View 及动画；
 
 
 ## 遇到的问题点：
