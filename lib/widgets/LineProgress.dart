@@ -25,7 +25,7 @@ class LineProgress extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(left: 6, right: 6),
                 child: SizedBox(
-                  width: 52,
+                  width: 60,
                   child: Text(
                     '$_progress%',
                     textAlign: TextAlign.center,
