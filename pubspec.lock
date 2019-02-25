@@ -53,10 +53,10 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "2c0600a83584625de7e110e51aab9ba6f9eebe13"
+      resolved-ref: abb02b4e1dd899d8f9b1c07ed37b751798184829
       url: "git://github.com/openflutter/flutter_screenutil"
     source: git
-    version: "0.4.6"
+    version: "0.5.1"
   flutter_statusbar:
     dependency: "direct main"
     description:
@@ -117,7 +117,7 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.0"
+    version: "1.5.0"
   quiver:
     dependency: transitive
     description:
@@ -187,5 +187,5 @@ packages:
     source: hosted
     version: "2.0.8"
 sdks:
-  dart: ">=2.1.0 <3.0.0"
+  dart: ">=2.1.1-dev.0.0 <3.0.0"
   flutter: ">=0.1.4 <3.0.0"
