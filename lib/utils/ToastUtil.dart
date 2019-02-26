@@ -6,7 +6,7 @@ class ToastUtil {
   static showToast(String msg) {
     if (msg.isEmpty) return;
     int currentTime = DateTime.now().millisecondsSinceEpoch;
-    if (currentTime - _lastTime <= Dimens.DURATION_TOAST) return;
+    if (currentTime - _lastTime <= Dimens.DURATION_TOAST_DURATION) return;
     _lastTime = currentTime;
     Fluttertoast.showToast(
       msg: '  $msg  ',

@@ -46,16 +46,15 @@ class _AnimateListPageState extends State<AnimateListPage> {
       );
 
   _insert() {
-    final index =
-        _selectedItem == null ? _list.length : _list.indexOf(_selectedItem);
-    _list.insert(index, _nextitem++);
+    _list.insert(
+        _selectedItem == null ? _list.length : _list.indexOf(_selectedItem),
+        _nextitem++);
   }
 
   _remove() {
-    if (_selectedItem != null) {
-      _list.removeAt(_list.indexOf(_selectedItem));
-      setState(() => _selectedItem = null);
-    }
+    if (_selectedItem == null) return;
+    _list.removeAt(_list.indexOf(_selectedItem));
+    setState(() => _selectedItem = null);
   }
 
   @override

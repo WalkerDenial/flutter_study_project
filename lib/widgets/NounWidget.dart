@@ -5,11 +5,8 @@ class NounWidget extends StatelessWidget {
   final _value;
   NounWidget(this._value);
   @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: CustomPaint(painter: _NounPainter(double.parse(_value) / 100.0)),
-    );
-  }
+  Widget build(BuildContext context) => Center(
+      child: CustomPaint(painter: _NounPainter(double.parse(_value) / 100.0)));
 }
 
 class _NounPainter extends CustomPainter {
