@@ -53,7 +53,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: abb02b4e1dd899d8f9b1c07ed37b751798184829
+      resolved-ref: "7a71725795e16320b5de3748d98ad08052f72764"
       url: "git://github.com/openflutter/flutter_screenutil"
     source: git
     version: "0.5.1"
