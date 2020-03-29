@@ -12,7 +12,7 @@ class ToastUtil {
       msg: '  $msg  ',
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
-      timeInSecForIos: 1
+      timeInSecForIosWeb: 1
     );
   }
 }
