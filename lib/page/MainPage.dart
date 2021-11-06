@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../constants/Strings.dart';
 import '../constants/Dimens.dart';
 import '../bean/RouteBean.dart';
+
 import 'EnglishListPage.dart';
 import 'LakePage.dart';
 import 'BasicAppBar.dart';
@@ -45,6 +47,7 @@ class MainPage extends StatelessWidget {
   final _itemData = <RouteBean>[];
 
   void _initData(BuildContext context) {
+    _itemData.clear();
     _itemData.add(RouteBean(
         _pageNames[0], (context) => EnglishListPage(title: _pageNames[0])));
     _itemData.add(
@@ -83,19 +86,21 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, width: 750, height: 1334);
+    // ScreenUtil.init(context, width: 750, height: 1334);
     _initData(context);
+    print("build()");
     return Scaffold(
       appBar: AppBar(
         title: Text(Strings.home),
         centerTitle: true,
         elevation: Dimens.ELEVATION_TITLE,
       ),
-      body: _buildNavigationList(),
+      body: _buildNavigationList(context),
     );
   }
 
-  Widget _buildNavigationList() {
+  Widget _buildNavigationList(_context) {
+    print("_buildNavigationList()");
     return ListView.builder(
       itemCount: _itemData.length * 2,
       itemBuilder: (context, index) => index.isOdd
@@ -105,6 +110,6 @@ class MainPage extends StatelessWidget {
               onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: _itemData[index ~/ 2].builder)),
             ),
-    );
+    ).build(_context);
   }
 }

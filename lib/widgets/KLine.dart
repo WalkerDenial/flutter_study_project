@@ -1,5 +1,4 @@
 import 'dart:ui';
-import 'dart:ui' as ui show TextStyle;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +19,7 @@ class _KLinePainter extends CustomPainter {
   double _minOffset = 10;
   double _maxOffset = 310;
   double _spaceX, _spaceY;
-  Paragraph _paragraph;
+  // Paragraph _paragraph;
   TextPainter _textPainter;
   _KLinePainter() {
     _initData();
@@ -34,7 +33,7 @@ class _KLinePainter extends CustomPainter {
       ..strokeWidth = 1
       ..style = PaintingStyle.stroke;
 
-    _width = ScreenUtil.screenWidthDp - 100;
+    // _width = ScreenUtil.screenWidthDp - 100;
 
     _spaceX = (_width - _minOffset) / 4;
     _spaceY = (_maxOffset - _minOffset) / 4;
@@ -70,15 +69,15 @@ class _KLinePainter extends CustomPainter {
         textAlign: TextAlign.start);
 
     // 第二种绘制文字方式
-    ParagraphBuilder _builder = ParagraphBuilder(ParagraphStyle(
-        textAlign: TextAlign.center,
-        fontWeight: FontWeight.w300,
-        fontStyle: FontStyle.normal,
-        fontSize: 20))
-      ..pushStyle(ui.TextStyle(color: Colors.red))
-      ..addText("1234");
+    // ParagraphBuilder _builder = ParagraphBuilder(ParagraphStyle(
+    //     textAlign: TextAlign.center,
+    //     fontWeight: FontWeight.w300,
+    //     fontStyle: FontStyle.normal,
+    //     fontSize: 20))
+    //   ..pushStyle(ui.TextStyle(color: Colors.red))
+    //   ..addText("1234");
 
-    _paragraph = _builder.build()..layout(ParagraphConstraints(width: 45));
+    // _paragraph = _builder.build()..layout(ParagraphConstraints(width: 45));
   }
 
   @override
@@ -92,7 +91,7 @@ class _KLinePainter extends CustomPainter {
               dashArray: CircularIntervalList<double>(<double>[3.0, 5.0])),
           _paint);
 
-    canvas.drawParagraph(_paragraph, Offset(20, 20));
+    // canvas.drawParagraph(_paragraph, Offset(20, 20));
 
     _textPainter
       ..layout(maxWidth: 100, minWidth: 10)

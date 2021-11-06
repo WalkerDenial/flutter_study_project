@@ -67,8 +67,8 @@ class _ChildWidgetState extends State<_ChildWidget> {
     //     sendPort, 'https://jsonplaceholder.typicode.com/posts');
 
     // setState(() => widgets = msg);
-    final response =
-        await http.get('https://jsonplaceholder.typicode.com/posts');
+    final response = await http
+        .get(Uri.https("https://jsonplaceholder.typicode.com", "posts"));
     setState(() => widgets = json.decode(response.body));
   }
 }

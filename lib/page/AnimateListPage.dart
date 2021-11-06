@@ -34,9 +34,8 @@ class _AnimateListPageState extends State<AnimateListPage> {
         item: _list[index],
         selected: _selectedItem == _list[index],
         onTap: () => setState(() {
-              _selectedItem =
-                  _selectedItem == _list[index] ? null : _list[index];
-            }),
+          _selectedItem = _selectedItem == _list[index] ? null : _list[index];
+        }),
       );
 
   _buildRemovedItem(item, context, animation) => _CardItem(
@@ -142,7 +141,7 @@ class _CardItem extends StatelessWidget {
         super(key: key);
   @override
   Widget build(BuildContext context) {
-    TextStyle textStyle = Theme.of(context).textTheme.display1;
+    TextStyle textStyle = Theme.of(context).textTheme.bodyText1;
     if (selected)
       textStyle = textStyle.copyWith(color: Colors.lightGreenAccent[400]);
     return Padding(

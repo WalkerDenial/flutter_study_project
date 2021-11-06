@@ -22,7 +22,7 @@ class _ChoiceCard extends StatelessWidget {
   _ChoiceCard({Key key, this.choice}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final textStyle = Theme.of(context).textTheme.display1;
+    final textStyle = Theme.of(context).textTheme.bodyText1;
     return Card(
       color: Colors.white,
       child: Center(

@@ -64,7 +64,7 @@ class _ChoiceCard extends StatelessWidget {
   _ChoiceCard({this.tmepChoice});
   @override
   Widget build(BuildContext context) {
-    final style = Theme.of(context).textTheme.display1;
+    final style = Theme.of(context).textTheme.bodyText1;
     return Card(
       color: Colors.white,
       child: Center(
